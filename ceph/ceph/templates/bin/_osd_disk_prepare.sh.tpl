@@ -27,7 +27,7 @@ function osd_disk_prepare {
     log "Checking if it belongs to this cluster"
     tmp_osd_mount="/var/lib/ceph/tmp/`echo $RANDOM`/"
     mkdir -p $tmp_osd_mount
-    mount ${OSD_DEVICE}1 ${tmp_osd_mount}
+    mount ${OSD_DEVICE}*1 ${tmp_osd_mount}
     osd_cluster_fsid=`cat ${tmp_osd_mount}/ceph_fsid`
     umount ${tmp_osd_mount} && rmdir ${tmp_osd_mount}
     cluster_fsid=`ceph ${CLI_OPTS} --name client.bootstrap-osd --keyring $OSD_BOOTSTRAP_KEYRING fsid`
