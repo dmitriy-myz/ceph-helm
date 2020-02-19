@@ -20,10 +20,15 @@ limitations under the License.
 {{- $dependencies := .Values.dependencies.rbd_provisioner }}
 ---
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: ceph-rbd-provisioner
+  labels:
+{{ tuple $envAll "ceph" "rbd-provisioner" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 4 }}
 spec:
+  selector:
+    matchLabels:
+{{ tuple $envAll "ceph" "rbd-provisioner" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 6 }}
   replicas: {{ .Values.pod.replicas.rbd_provisioner }}
   strategy:
     type: Recreate
