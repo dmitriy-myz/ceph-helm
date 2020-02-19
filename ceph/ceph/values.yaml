@@ -26,7 +26,7 @@ images:
   bootstrap: docker.io/ceph/daemon:tag-build-master-luminous-ubuntu-16.04
   dep_check: docker.io/kolla/ubuntu-source-kubernetes-entrypoint:4.0.0
   daemon: docker.io/ceph/daemon:tag-build-master-luminous-ubuntu-16.04
-  ceph_config_helper: docker.io/port/ceph-config-helper:v1.7.5
+  ceph_config_helper: google/cloud-sdk:281.0.0-slim
   rbd_provisioner: quay.io/external_storage/rbd-provisioner:v0.1.1
   minimal: docker.io/alpine:latest
   pull_policy: "IfNotPresent"
