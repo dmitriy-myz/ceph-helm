@@ -25,6 +25,8 @@ metadata:
 data:
   admin.keyring: |+
 {{ tuple "templates/_admin.keyring.tpl" . | include "helm-toolkit.utils.template" | indent 4 }}
+  bootstrap.keyring.mgr: |+
+{{ tuple "templates/_bootstrap.keyring.mgr.tpl" . | include "helm-toolkit.utils.template" | indent 4 }}
   bootstrap.keyring.mds: |+
 {{ tuple "templates/_bootstrap.keyring.mds.tpl" . | include "helm-toolkit.utils.template" | indent 4 }}
   bootstrap.keyring.osd: |+
